@@ -8,16 +8,14 @@ For more [details watch the video](https://youtu.be/AQ-f-U8Pncc).
 
 1. Install the dependancies
 
-		```
 		npm install
-		```
 
 2. [Configure the serverless framework locally](https://serverless.com/framework/docs/providers/aws/guide/credentials/) (if not already done)
 
+3. Copy `config.example.json` to `config.json` and fill in your github and netlify tokens
 
-3. Configure the `Custom::NetlifySite` resource in `serverless.yml`
+4. Configure the `Custom::NetlifySite` resource in `serverless.yml`
 
-		```yml
 		resources:
 		  Resources:
 		    myNetlifySite:
@@ -43,8 +41,6 @@ For more [details watch the video](https://youtu.be/AQ-f-U8Pncc).
 		          env:
 		            MY_ENV_KEY: hello
 		            MY_OTHER_KEY: there
-		```
-
 
 
 ## Deploying
