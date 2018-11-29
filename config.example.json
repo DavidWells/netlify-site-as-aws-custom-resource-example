@@ -1,0 +1,4 @@
+{
+  "netlifyToken": "your-netlify-token",
+  "githubToken": "your-github-token"
+}

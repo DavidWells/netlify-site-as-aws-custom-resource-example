@@ -1,0 +1,17 @@
+{
+  "name": "netlify-site-as-aws-custom-resource-example",
+  "version": "1.0.0",
+  "private": true,
+  "description": "How to deploy Netlify sites with AWS Cloudformation, SAM, and the serverless Framework",
+  "main": "handler.js",
+  "scripts": {
+    "deploy": "serverless deploy",
+    "remove": "serverless remove"
+  },
+  "keywords": [],
+  "author": "David Wells",
+  "license": "MIT",
+  "devDependencies": {
+    "serverless": "^1.32.0"
+  }
+}
