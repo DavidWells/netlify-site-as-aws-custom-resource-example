@@ -7,3 +7,4 @@ jspm_packages
 config.json
 otherconfig.json
 package-lock.json
+.DS_Store
