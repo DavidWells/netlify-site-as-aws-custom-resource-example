@@ -42,6 +42,7 @@ For more [details watch the video](https://youtu.be/AQ-f-U8Pncc).
 		            MY_ENV_KEY: hello
 		            MY_OTHER_KEY: there
 
+5. Then deploy with `sls deploy`
 
 ## Deploying
 
