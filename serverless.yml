@@ -14,14 +14,14 @@ resources:
     myNetlifySite:
       Type: Custom::NetlifySite
       Properties:
-        ServiceToken: arn:aws:lambda:us-east-1:453208706738:function:custom-resource-netlify-site
-        # ServiceToken: {
-        #   "Fn::Join": ["",
-        #     ["arn:aws:lambda:",{"Ref":"AWS::Region"},":453208706738:function:custom-resource-netlify-site"]
-        #   ]
-        # }
-        netlifyToken: ${file(otherconfig.json):netlifyToken}
-        githubToken:  ${file(otherconfig.json):githubToken}
+        # References provision lambda in correct region
+        ServiceToken: {
+          "Fn::Join": ["",
+            ["arn:aws:lambda:",{"Ref":"AWS::Region"},":453208706738:function:custom-resource-netlify-site"]
+          ]
+        }
+        netlifyToken: ${file(config.json):netlifyToken}
+        githubToken: ${file(config.json):githubToken}
         name: netlify-site-from-custom-resource
         # custom_domain: lol-wow-cool.com
         build_settings:
