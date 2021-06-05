@@ -16,29 +16,29 @@ For more [details watch the video](https://youtu.be/AQ-f-U8Pncc).
 
 4. Configure the `Custom::NetlifySite` resource in `serverless.yml`
 		
-		```yml
-		resources:
-		  Resources:
-		    myNetlifySite:
-		      Type: Custom::NetlifySite
-		      Properties:
-		        # References provision lambda in correct region
-		        ServiceToken: !Sub arn:aws:lambda:${AWS::Region}:453208706738:function:custom-resource-netlify-site
-		        netlifyToken: ${file(config.json):netlifyToken}
-		        githubToken: ${file(config.json):githubToken}
-		        name: netlify-site-from-custom-resource
-		        # custom_domain: lol-wow-cool.com
-		        build_settings:
-		          repo_url: https://github.com/DavidWells/test-site
-		          repo_branch: master
-		          dir: build
-		          cmd: npm run build
-		          allowed_branches:
-		          - master
-		          env:
-		            MY_ENV_KEY: hello
-		            MY_OTHER_KEY: there
-		```
+	```yml
+	resources:
+	  Resources:
+	    myNetlifySite:
+	      Type: Custom::NetlifySite
+	      Properties:
+		# References provision lambda in correct region
+		ServiceToken: !Sub arn:aws:lambda:${AWS::Region}:453208706738:function:custom-resource-netlify-site
+		netlifyToken: ${file(config.json):netlifyToken}
+		githubToken: ${file(config.json):githubToken}
+		name: netlify-site-from-custom-resource
+		# custom_domain: lol-wow-cool.com
+		build_settings:
+		  repo_url: https://github.com/DavidWells/test-site
+		  repo_branch: master
+		  dir: build
+		  cmd: npm run build
+		  allowed_branches:
+		  - master
+		  env:
+		    MY_ENV_KEY: hello
+		    MY_OTHER_KEY: there
+	```
 
 5. Then deploy with `sls deploy`
 
