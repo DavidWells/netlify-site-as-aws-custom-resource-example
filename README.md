@@ -15,18 +15,15 @@ For more [details watch the video](https://youtu.be/AQ-f-U8Pncc).
 3. Copy `config.example.json` to `config.json` and fill in your github and netlify tokens
 
 4. Configure the `Custom::NetlifySite` resource in `serverless.yml`
-
+		
+		```yml
 		resources:
 		  Resources:
 		    myNetlifySite:
 		      Type: Custom::NetlifySite
 		      Properties:
 		        # References provision lambda in correct region
-		        ServiceToken: {
-		          "Fn::Join": ["",
-		            ["arn:aws:lambda:",{"Ref":"AWS::Region"},":453208706738:function:custom-resource-netlify-site"]
-		          ]
-		        }
+		        ServiceToken: !Sub arn:aws:lambda:${AWS::Region}:453208706738:function:custom-resource-netlify-site
 		        netlifyToken: ${file(config.json):netlifyToken}
 		        githubToken: ${file(config.json):githubToken}
 		        name: netlify-site-from-custom-resource
@@ -41,6 +38,7 @@ For more [details watch the video](https://youtu.be/AQ-f-U8Pncc).
 		          env:
 		            MY_ENV_KEY: hello
 		            MY_OTHER_KEY: there
+		```
 
 5. Then deploy with `sls deploy`
 
