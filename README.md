@@ -22,7 +22,7 @@ For more [details watch the video](https://youtu.be/AQ-f-U8Pncc).
 	    myNetlifySite:
 	      Type: Custom::NetlifySite
 	      Properties:
-		# References provision lambda in correct region
+	        # References provision lambda in correct region
 	        ServiceToken: !Sub arn:aws:lambda:${AWS::Region}:453208706738:function:custom-resource-netlify-site
 	        netlifyToken: ${file(config.json):netlifyToken}
 	        githubToken: ${file(config.json):githubToken}
